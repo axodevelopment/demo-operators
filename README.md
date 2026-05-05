@@ -51,3 +51,9 @@ type PaychexSpec struct {
     Labels map[string]string `json:"labels,omitempty"`
 }
 ```
+
+Once all the edits to the api struct we leverage make generate command to create the CRD definition from this data.
+
+```bash
+make generate manifests
+```
