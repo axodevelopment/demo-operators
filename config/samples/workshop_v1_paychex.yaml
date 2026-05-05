@@ -1,0 +1,9 @@
+apiVersion: workshop.workshop.io/v1
+kind: Paychex
+metadata:
+  labels:
+    app.kubernetes.io/name: demo-operators
+    app.kubernetes.io/managed-by: kustomize
+  name: paychex-sample
+spec:
+  # TODO(user): Add fields here

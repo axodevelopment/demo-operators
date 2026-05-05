@@ -1,0 +1,4 @@
+## Append samples of your project ##
+resources:
+- workshop_v1_paychex.yaml
+# +kubebuilder:scaffold:manifestskustomizesamples

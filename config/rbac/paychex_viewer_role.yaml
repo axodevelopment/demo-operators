@@ -1,0 +1,29 @@
+# This rule is not used by the project demo-operators itself.
+# It is provided to allow the cluster admin to help manage permissions for users.
+#
+# Grants read-only access to workshop.workshop.io resources.
+# This role is intended for users who need visibility into these resources
+# without permissions to modify them. It is ideal for monitoring purposes and limited-access viewing.
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: demo-operators
+    app.kubernetes.io/managed-by: kustomize
+  name: paychex-viewer-role
+rules:
+- apiGroups:
+  - workshop.workshop.io
+  resources:
+  - paychexes
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - workshop.workshop.io
+  resources:
+  - paychexes/status
+  verbs:
+  - get

@@ -43,3 +43,11 @@ operator-sdk create api \
   --kind=Paychex \
   --resource --controller
 ```
+
+api/v1/paychex_types.go was created.  Add the lables for the paychex type that will be captured.
+
+```bash
+type PaychexSpec struct {
+    Labels map[string]string `json:"labels,omitempty"`
+}
+```
