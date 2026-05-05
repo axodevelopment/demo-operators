@@ -122,3 +122,50 @@ spec:
 ```bash
 oc get all,route -n my-test
 ```
+
+---
+
+
+NOTES:
+
+## Manager
+
+Mangr is the runtime that hosts one or more controllers: a Kubernetes client, a shared cache, the scheme, leader election, the metrics server, health probes, and the webhook server.
+
+lifecycle is mostly...: 
+
+- manager boots
+- connects to API server 
+- *** starts informers (one per watched type) ***
+- fills the cache by listing everything currently in the cluster
+- starts watch streams
+- starts your reconciler workers
+- starts leader election
+- starts serving metrics/health endpoints.
+
+Manager will waituntil the cache reports "synced" then controller-runtime blocks workers until the initial list is complete.  (avoindg partial caches)
+
+## informaers
+
+Informers do:
+- maintain an open watch to the api
+- receives deltas 
+- indexer is local (default)
+- managers usually create shared informers by default
+
+Informer lifecycle:
+
+- Reflector (thats the watch)
+- DeltaFIFO
+- Indexer
+- Register event handerlers
+- keys are registered on controlelrs workqueue for deduping, rate limiting
+
+
+Implications:
+
+Reads (r.Get, r.List) hit the cache, not the API server
+- cache is eventually consistent
+- For(), Owns(), and Watches()
+
+Writes (Create/Update/Patch/Delete) go straight to the API server.
