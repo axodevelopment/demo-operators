@@ -57,3 +57,9 @@ Once all the edits to the api struct we leverage make generate command to create
 ```bash
 make generate manifests
 ```
+
+Need to get the route crd
+
+```bash
+go get github.com/openshift/api@latest
+```
