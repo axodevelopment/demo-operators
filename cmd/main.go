@@ -26,6 +26,7 @@ import (
 	// to ensure that exec-entrypoint and run can make use of them.
 	_ "k8s.io/client-go/plugin/pkg/client/auth"
 
+	routev1 "github.com/openshift/api/route/v1"
 	"k8s.io/apimachinery/pkg/runtime"
 	utilruntime "k8s.io/apimachinery/pkg/util/runtime"
 	clientgoscheme "k8s.io/client-go/kubernetes/scheme"
@@ -51,6 +52,9 @@ func init() {
 	utilruntime.Must(clientgoscheme.AddToScheme(scheme))
 
 	utilruntime.Must(workshopv1.AddToScheme(scheme))
+
+	//TODO: Note Install vs AddToSchema
+	utilruntime.Must(routev1.Install(scheme))
 	// +kubebuilder:scaffold:scheme
 }
 
@@ -178,6 +182,7 @@ func main() {
 		})
 	}
 
+	//TODO: NewManager info
 	mgr, err := ctrl.NewManager(ctrl.GetConfigOrDie(), ctrl.Options{
 		Scheme:                 scheme,
 		Metrics:                metricsServerOptions,
@@ -202,6 +207,8 @@ func main() {
 		os.Exit(1)
 	}
 
+
+	//TODO: Reconciler
 	if err := (&controller.PaychexReconciler{
 		Client: mgr.GetClient(),
 		Scheme: mgr.GetScheme(),

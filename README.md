@@ -63,3 +63,16 @@ Need to get the route crd
 ```bash
 go get github.com/openshift/api@latest
 ```
+
+Add the route dependecy in main
+
+What is a Manager
+
+What is a Reconciler
+
+init()
+
+---
+
+Onto the Reconciler logic
+
