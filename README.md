@@ -44,6 +44,9 @@ operator-sdk create api \
   --resource --controller
 ```
 
+
+NOTE: This geneatees workshop.workshop.io/v1
+
 api/v1/paychex_types.go was created.  Add the lables for the paychex type that will be captured.
 
 ```bash
@@ -95,8 +98,27 @@ go mod tidy
 make manifests
 ```
 
-
-
 ```bash
 make install
+```
+
+```bash
+make run
+```
+
+new terminal deploy config/samples
+
+```bash
+apiVersion: workshop.workshop.io/v1
+kind: Paychex
+metadata:
+  name: test1
+  namespace: my-test
+spec:
+  labels:
+    owner: operator
+```
+
+```bash
+oc get all,route -n my-test
 ```

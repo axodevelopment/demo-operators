@@ -1,0 +1,8 @@
+apiVersion: workshop.workshop.io/v1
+kind: Paychex
+metadata:
+  name: test1
+  namespace: my-test
+spec:
+  labels:
+    owner: operator
