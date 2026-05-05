@@ -76,3 +76,21 @@ init()
 
 Onto the Reconciler logic
 
+---
+
+Resource mapping of ocp version may need additional pin's
+
+```bash
+go get k8s.io/api@v0.35.1 \
+       k8s.io/apimachinery@v0.35.1 \
+       k8s.io/client-go@v0.35.1
+```
+
+
+```bash
+go mod tidy
+```
+
+```bash
+make manifests
+```
