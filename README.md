@@ -94,3 +94,9 @@ go mod tidy
 ```bash
 make manifests
 ```
+
+
+
+```bash
+make install
+```

@@ -207,7 +207,6 @@ func main() {
 		os.Exit(1)
 	}
 
-
 	//TODO: Reconciler
 	if err := (&controller.PaychexReconciler{
 		Client: mgr.GetClient(),
