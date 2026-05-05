@@ -23,19 +23,23 @@ Tutorial listing
 
 ## Tutorials
 
-These tutorials are mainly OCP focused.
+Building an operator
 
-Under the `tutorials` folder you will see some tutorials called `<tutorial>.md`
+This will generally scaffold the project
 
-| Name               | Description                    | Status           |
-|--------------------|--------------------------------|------------------|
-| {{basics}}    | How to {{details}}     | Draft         |
+```bash
+operator-sdk init \
+  --domain=workshop.io \
+  --repo=github.com/axodevelopment/demo-operators \
+  --plugins=go/v4
+```
 
+Now we need to add the controller
 
-
-
----
-
-## Reference Docs
-
-TODO
+```bash
+operator-sdk create api \
+  --group=workshop \
+  --version=v1 \
+  --kind=Paychex \
+  --resource --controller
+```
