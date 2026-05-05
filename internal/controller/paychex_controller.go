@@ -41,9 +41,9 @@ type PaychexReconciler struct {
 	Scheme *runtime.Scheme
 }
 
-// +kubebuilder:rbac:groups=workshop.io,resources=paychexes,verbs=get;list;watch;create;update;patch;delete
-// +kubebuilder:rbac:groups=workshop.io,resources=paychexes/status,verbs=get;update;patch
-// +kubebuilder:rbac:groups=workshop.io,resources=paychexes/finalizers,verbs=update
+// +kubebuilder:rbac:groups=workshop.workshop.io,resources=paychexes,verbs=get;list;watch;create;update;patch;delete
+// +kubebuilder:rbac:groups=workshop.workshop.io,resources=paychexes/status,verbs=get;update;patch
+// +kubebuilder:rbac:groups=workshop.workshop.io,resources=paychexes/finalizers,verbs=update
 // +kubebuilder:rbac:groups=apps,resources=deployments,verbs=get;list;watch;create;update;patch;delete
 // +kubebuilder:rbac:groups=core,resources=services,verbs=get;list;watch;create;update;patch;delete
 // +kubebuilder:rbac:groups=route.openshift.io,resources=routes,verbs=get;list;watch;create;update;patch;delete
